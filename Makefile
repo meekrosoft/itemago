@@ -7,7 +7,7 @@ LATEST := ${NAME}:latest
 
 build:
 	@echo ${IMG}
-	@docker build -f Dockerfile.thin -t ${IMG} .
+	@docker build -f Dockerfile -t ${IMG} .
 	@docker tag ${IMG} ${LATEST}
 
 push:
@@ -17,7 +17,7 @@ run:
 	@docker run -d --rm -it -p 80:80 --name itemago ${NAME}
 
 stop:
-	@docker stop ngingo
+	@docker stop itemago
 
 runk:
 	@kubectl run hello-itemago --image=${IMG} --port=80
